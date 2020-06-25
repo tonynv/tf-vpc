@@ -1,6 +1,3 @@
-provider "aws" {
-  region = "us-east-1"
-}
 module "vpc" {
   source = "app.terraform.io/tonynv-traning/vpc/aws"
 
@@ -19,4 +16,13 @@ module "vpc" {
     Environment = "dev"
     version     = "2.44.0"
   }
+}
+
+provider "aws" {
+  region                      = "east-1"
+  skip_credentials_validation = true
+  skip_requesting_account_id  = true
+  skip_get_ec2_platforms      = true
+  skip_metadata_api_check     = true
+  skip_region_validation      = true
 }
